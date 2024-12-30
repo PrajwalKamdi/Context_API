@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 
 export const MyContext = createContext();
 
@@ -25,6 +25,7 @@ const Context = ({children}) => {
     }
   }
     const [state, dispatch]= useReducer(reducer, 0);
-  return <MyContext.Provider value={{state, dispatch}}>{children}</MyContext.Provider>
+    const [theme, setTheme]= useState("dark");
+  return <MyContext.Provider value={{state, dispatch,theme,setTheme}}>{children}</MyContext.Provider>
 }
 export default Context
